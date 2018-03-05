@@ -149,8 +149,8 @@ header i.icon-search{
 .product-container .product-info{
     font-size: 12px;
     width: 100%;
-    margin: 7px 0 0 10px;
-    height: 32px;
+    margin: 0px 0 0 10px;
+    height: 50px;
     border-left: 1px solid #000000;
     overflow: hidden;
     position: relative;
@@ -160,9 +160,21 @@ header i.icon-search{
 }
 .product-container .product-info .slide-container>div{
     height: 50px;
+    padding-left: 10px;
 }
-.product-container .product-info .slide-container.zhongyao{
-
+.product-container .product-info .slide-container.yuanliao{
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+.product-container  .slide-container.zhongyao span{
+    display: inline-block;
+}
+.product-container  .slide-container.zhongyao .product-name{
+    margin-right: 15px;
+}
+.product-container  .slide-container.zhongyao .price{
+    width: 25%;
+    margin-left: 5px;
 }
 .product-container .product-info .slide-container.yuanliao p{
     white-space: nowrap;
@@ -171,7 +183,8 @@ header i.icon-search{
     display: inline-block;
     margin:0 5px;
 }
-.product-container .product-name{
+.product-container .product-name,
+.product-container  .markets{
     color: #f97433;
 }
 .product-container .product-list{

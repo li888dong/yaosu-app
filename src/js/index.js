@@ -130,7 +130,7 @@ $(function () {
                 var marketsGroup = [];
                 i.tbProductTcmOriginplace.map(j=>{
                     marketsGroup.push(`<span class="markets">${j.markets}</span><span class="price">${j.price}</span>`)
-                })
+                });
                 $('.slide-container.zhongyao').append(`
                     <div>
                         <p><span class="product-name">${i.productName}</span></p>
@@ -144,6 +144,44 @@ $(function () {
         },
         gotoProducts: null
     };
+
+    // 现货
+    var goods = {
+        type:'data1',
+        data1:{},
+        data2:{},
+        data3:{},
+        data4:{},
+        data5:{},
+        data6:{},
+        data7:{},
+        data8:{},
+        changeType:function (type) {
+			this.type = type;
+			$('#xianhuo').find('.item-content').empty();
+			switch (this.type){
+                case 'data1':
+                    this.rendererData(this.data1);
+                    break;
+
+            }
+		},
+        rendererData:function (data) {
+            data.map(i=>{
+				dom.push(`<div class="product-item">
+                        <h4 class="item-title">己内酰胺</h4>
+                        <div class="item-info">纯度：99%</div>
+                        <div class="item-company">西安晋级了化工有限公司</div>
+                    </div>`)
+            });
+			$('#xianhuo').find('.item-content').append(dom.join(','))
+		},
+        init:function (goodData) {
+            [this.data1,this.data2,this.data3,this.data4,this.data5,this.data6,this.data7,this.data8] = goodData;
+            this.rendererData(this.data1)
+		}
+    };
+
     // 用以存放请求回来的数据
     var fetchData = {};
     // 请求首页数据
@@ -157,8 +195,10 @@ $(function () {
 
             // banner轮播
             initBannerLunbo(fetchData.banner, lunbo);
-
+	        //初始化参考价格
             referencePrice.init(fetchData.api, fetchData.tcm);
+            //初始化现货
+            goods.init(fetchData.goods);
             // 跳转全部 的点击事件
             $('.more').click(function () {
                 checkMore($(this).parents('div.item-container')[0].id)
@@ -175,12 +215,15 @@ $(function () {
                     case 'price':
                         referencePrice.changeType();
                         break;
+                    case 'xianhuo':
+
                     default:
                 }
                 tabChange($(this), 'tabbar-selected', $(this).parent().find('span'), callback)
             });
 
             $('.tabbar-list td').click(function () {
+                goods.changeType($(this).data('type'));
                 tabChange($(this), 'selected', $('.tabbar-list td'))
             });
 
