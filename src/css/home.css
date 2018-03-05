@@ -161,7 +161,10 @@ header i.icon-search{
 .product-container .product-info .slide-container>div{
     height: 50px;
 }
-.product-container .product-info p{
+.product-container .product-info .slide-container.zhongyao{
+
+}
+.product-container .product-info .slide-container.yuanliao p{
     white-space: nowrap;
 }
 .product-container .product-info span{

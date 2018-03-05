@@ -4,8 +4,9 @@ $(function () {
      * @param el 当前被点击的tab标签
      * @param className 点击被激活时的类名
      * @param elList 当前一组的tab标签
+     * @param callback 回调函数
      * */
-    function tabChange(el, className, elList) {
+    function tabChange(el, className, elList, callback = function () {}) {
         elList.removeClass(className);
         el.addClass(className);
     }
@@ -39,13 +40,14 @@ $(function () {
             }
         }, delay)
     }
+
     /**
      * @description 查看更多函数
      * @param item: 要查看更多的具体内容
      *
      * */
     function checkMore(item) {
-        switch (item){
+        switch (item) {
             case 'caigou':
                 console.log('采购');
                 break;
@@ -83,22 +85,81 @@ $(function () {
      * */
     function initBannerLunbo(img, callback) {
         var $bannerContainer = $('.banner-img-container');
-        for(var i = 0;i<img.length;i++){
-            $bannerContainer.append('<div class="banner-img" style="width:'+document.body.offsetWidth+'px;background-image:url(http://image.yaosuce.com'+img[i].picture+')"></div>');
+        for (var i = 0; i < img.length; i++) {
+            $bannerContainer.append('<div class="banner-img" style="width:' + document.body.offsetWidth + 'px;background-image:url(http://image.yaosuce.com' + img[i].picture + ')"></div>');
         }
         callback($bannerContainer, $('.banner-img-container>div'), document.body.offsetWidth, 5000, 'left', 2000);
     }
+
+    // 参考价格
+    var referencePrice = {
+        // 0原料药，1中药
+        type: 0,
+        yuanliaoData: [],
+        zhongyaoData: [],
+        changeType: function () {
+            this.type === 0 ? this.type = 1 : this.type = 0;
+            if (this.type === 0) {
+                $('.slide-container.zhongyao').css('zIndex',-1);
+                $('.slide-container.yuanliao').css('zIndex',1)
+            }
+            if (this.type === 1) {
+                $('.slide-container.yuanliao').css('zIndex',-1);
+                $('.slide-container.zhongyao').css('zIndex',1)
+            }
+        },
+        init: function (yuanliaoData, zhongyaoData) {
+            $('.slide-container.zhongyao').css('zIndex',-1);
+            $('.slide-container.yuanliao').css('zIndex',1)
+            this.yuanliaoData = yuanliaoData;
+            this.zhongyaoData = zhongyaoData;
+
+            var $slideContainer = $('.slide-container');
+            $slideContainer.empty();
+            for (var i = 0; i < this.yuanliaoData.length; i = i + 2) {
+
+                $('.slide-container.yuanliao').append(`
+                    <div>
+                        <p><span class="product-name">${this.yuanliaoData[i].productname}</span> <span class="price">${this.yuanliaoData[i].price}</span><span>${this.yuanliaoData[i].qualitystandard}</span></p>
+                        <p><span class="product-name">${this.yuanliaoData[i + 1] ? this.yuanliaoData[i + 1].productname : ''}</span> <span class="price">${this.yuanliaoData[i + 1] ? this.yuanliaoData[i + 1].price : ''}</span><span>${this.yuanliaoData[i + 1] ? this.yuanliaoData[i + 1].qualitystandard : ''}</span></p>
+                    </div>
+                `)
+
+            }
+            this.zhongyaoData.map(i=>{
+                var marketsGroup = [];
+                i.tbProductTcmOriginplace.map(j=>{
+                    marketsGroup.push(`<span class="markets">${j.markets}</span><span class="price">${j.price}</span>`)
+                })
+                $('.slide-container.zhongyao').append(`
+                    <div>
+                        <p><span class="product-name">${i.productName}</span></p>
+                        <p class="markets-group">${marketsGroup.join(',')}</p>    
+                    </div>
+                `)
+            });
+
+            lunbo($slideContainer, $('.slide-container.zhongyao>div'), 50, 2000, 'top', 1000);
+            lunbo($slideContainer, $('.slide-container.yuanliao>div'), 50, 2000, 'top', 1000);
+        },
+        gotoProducts: null
+    };
     // 用以存放请求回来的数据
     var fetchData = {};
     // 请求首页数据
     $.ajax({
-        url:'http://localhost:3000/app/index/list',
-        type:'POST',
-        dataType:'json',
-        success:function (res) {
+        url: 'http://localhost:3000/app/index/list',
+        type: 'POST',
+        dataType: 'json',
+        success: function (res) {
             fetchData = res.data;
             console.log(res.data);
-            // 查看全部的点击事件
+
+            // banner轮播
+            initBannerLunbo(fetchData.banner, lunbo);
+
+            referencePrice.init(fetchData.api, fetchData.tcm);
+            // 跳转全部 的点击事件
             $('.more').click(function () {
                 checkMore($(this).parents('div.item-container')[0].id)
             });
@@ -106,13 +167,17 @@ $(function () {
             $('.nav-list .nav-item').click(function () {
                 checkMore($(this).data('name'))
             });
-            // 轮播计时器
-            initBannerLunbo(fetchData.banner,lunbo);
 
-            var timer1 = lunbo($('.slide-container'), $('.slide-container>div'), 50, 2000, 'top', 1000);
             // tab标签的切换事件
             $('.tabbar-container>span').click(function () {
-                tabChange($(this), 'tabbar-selected', $(this).parent().find('span'))
+                var callback;
+                switch ($(this).closest('[id]')[0].id) {
+                    case 'price':
+                        referencePrice.changeType();
+                        break;
+                    default:
+                }
+                tabChange($(this), 'tabbar-selected', $(this).parent().find('span'), callback)
             });
 
             $('.tabbar-list td').click(function () {
@@ -122,11 +187,11 @@ $(function () {
 
             window.onunload = function () {
                 // 清除计时器
-                clearInterval(timer1)
+                // clearInterval(timer1)
             };
 
         },
-        error:function (err) {
+        error: function (err) {
             alert('网络错误');
             console.log(err)
         }

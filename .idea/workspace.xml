@@ -2,50 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9e906c6-0b13-4dc3-9571-73ed92dc5cdf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/ad01.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/ad02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/ad03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/ad04.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/ad05.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/btn-list.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/caigou.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/jishu.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/more.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/nav_01.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/nav_02.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/nav_03.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/nav_04.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/nav_05.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/nav_06.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/nav_07.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/nav_08.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/piwen.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/waimao.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/xiangmu.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/xianhuo.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/网页版_35.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/yaosu-app.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/proxy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/iconfont/demo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/iconfont/demo_fontclass.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/iconfont/demo_symbol.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/iconfont/demo_unicode.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/iconfont/iconfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css/home.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/home.css" afterPath="$PROJECT_DIR$/src/css/home.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/index.js" afterPath="$PROJECT_DIR$/src/js/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -62,8 +22,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="20" column="49" lean-forward="false" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+            <state relative-caret-position="549">
+              <caret line="82" column="44" lean-forward="false" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="44" />
               <folding>
                 <element signature="n#div#1;n#div#12;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
@@ -74,43 +34,26 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-224">
-              <caret line="88" column="109" lean-forward="false" selection-start-line="88" selection-start-column="109" selection-end-line="88" selection-end-column="109" />
+            <state relative-caret-position="301">
+              <caret line="136" column="47" lean-forward="false" selection-start-line="136" selection-start-column="47" selection-end-line="136" selection-end-column="47" />
               <folding>
-                <marker date="1520232011581" expanded="true" signature="2280:4013" ph="..." />
-                <marker date="1520232011581" expanded="true" signature="2449:2455" ph="..." />
-                <marker date="1520232011581" expanded="true" signature="2449:2504" ph="..." />
-                <marker date="1520232011581" expanded="true" signature="2449:2551" ph="..." />
+                <marker date="1520240371928" expanded="true" signature="2337:6825" ph="..." />
+                <marker date="1520240371928" expanded="true" signature="2512:2518" ph="..." />
+                <marker date="1520240371928" expanded="true" signature="2512:2571" ph="..." />
+                <marker date="1520240371928" expanded="true" signature="2512:2622" ph="..." />
+                <marker date="1520240371928" expanded="true" signature="3867:4422" ph="..." />
+                <marker date="1520240371928" expanded="true" signature="4806:4939" ph="..." />
+                <marker date="1520240371928" expanded="true" signature="4806:4998" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="proxy.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proxy.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/css/home.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+            <state relative-caret-position="432">
+              <caret line="163" column="58" lean-forward="false" selection-start-line="163" selection-start-column="33" selection-end-line="163" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -139,7 +82,6 @@
       <find>td</find>
       <find>tab-container</find>
       <find>tabbar</find>
-      <find>tabbar-container</find>
       <find>div</find>
       <find>nav</find>
       <find>product-container</find>
@@ -151,6 +93,8 @@
       <find>38</find>
       <find>product-name</find>
       <find>productPriceSlide</find>
+      <find>markets-group</find>
+      <find>tabbar-container</find>
     </findStrings>
     <replaceStrings>
       <replace>background-image</replace>
@@ -175,10 +119,10 @@
         <option value="$PROJECT_DIR$/css/home.css" />
         <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/proxy.js" />
-        <option value="$PROJECT_DIR$/src/css/home.css" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/js/index.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/css/home.css" />
       </list>
     </option>
   </component>
@@ -278,12 +222,12 @@
       <workItem from="1519889868096" duration="4929000" />
       <workItem from="1519953634386" duration="13373000" />
       <workItem from="1520038887070" duration="18421000" />
-      <workItem from="1520212072859" duration="15253000" />
+      <workItem from="1520212072859" duration="23347000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51976000" />
+    <option name="totallyTimeSpent" value="60070000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -295,7 +239,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -333,10 +277,13 @@
         <state relative-caret-position="1782">
           <caret line="66" column="27" lean-forward="true" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
           <folding>
-            <marker date="1520232011581" expanded="true" signature="2280:4013" ph="..." />
-            <marker date="1520232011581" expanded="true" signature="2449:2455" ph="..." />
-            <marker date="1520232011581" expanded="true" signature="2449:2504" ph="..." />
-            <marker date="1520232011581" expanded="true" signature="2449:2551" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="2337:6825" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="2512:2518" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="2512:2571" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="2512:2622" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="3867:4422" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="4806:4939" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="4806:4998" ph="..." />
           </folding>
         </state>
       </provider>
@@ -421,6 +368,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/proxy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -429,18 +384,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/home.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="20" column="49" lean-forward="false" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+        <state relative-caret-position="549">
+          <caret line="82" column="44" lean-forward="false" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="44" />
           <folding>
             <element signature="n#div#1;n#div#12;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -449,21 +396,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-224">
-          <caret line="88" column="109" lean-forward="false" selection-start-line="88" selection-start-column="109" selection-end-line="88" selection-end-column="109" />
+        <state relative-caret-position="301">
+          <caret line="136" column="47" lean-forward="false" selection-start-line="136" selection-start-column="47" selection-end-line="136" selection-end-column="47" />
           <folding>
-            <marker date="1520232011581" expanded="true" signature="2280:4013" ph="..." />
-            <marker date="1520232011581" expanded="true" signature="2449:2455" ph="..." />
-            <marker date="1520232011581" expanded="true" signature="2449:2504" ph="..." />
-            <marker date="1520232011581" expanded="true" signature="2449:2551" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="2337:6825" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="2512:2518" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="2512:2571" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="2512:2622" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="3867:4422" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="4806:4939" ph="..." />
+            <marker date="1520240371928" expanded="true" signature="4806:4998" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/css/home.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        <state relative-caret-position="432">
+          <caret line="163" column="58" lean-forward="false" selection-start-line="163" selection-start-column="33" selection-end-line="163" selection-end-column="58" />
           <folding />
         </state>
       </provider>
