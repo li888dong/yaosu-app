@@ -129,18 +129,18 @@ $(function () {
             this.zhongyaoData.map(i=>{
                 var marketsGroup = [];
                 i.tbProductTcmOriginplace.map(j=>{
-                    marketsGroup.push(`<span class="markets">${j.markets}</span><span class="price">${j.price}</span>`)
+                    marketsGroup.push(`<span class="markets">${j.markets} :</span><span class="price">${j.price}</span>`)
                 });
                 $('.slide-container.zhongyao').append(`
                     <div>
-                        <p><span class="product-name">${i.productName}</span></p>
-                        <p class="markets-group">${marketsGroup.join(',')}</p>    
+                        <p><span class="product-name">${i.productName}</span><span>${i.tbProductTcmOriginplace[0].specification}</span></p>
+                        <p class="markets-group">${marketsGroup.join('')}</p>    
                     </div>
                 `)
             });
 
-            lunbo($slideContainer, $('.slide-container.zhongyao>div'), 50, 2000, 'top', 1000);
-            lunbo($slideContainer, $('.slide-container.yuanliao>div'), 50, 2000, 'top', 1000);
+            lunbo($('.slide-container.zhongyao'), $('.slide-container.zhongyao>div'), 50, 2000, 'top', 1000);
+            lunbo($('.slide-container.yuanliao'), $('.slide-container.yuanliao>div'), 50, 2000, 'top', 1000);
         },
         gotoProducts: null
     };
@@ -174,11 +174,11 @@ $(function () {
                         <div class="item-company">西安晋级了化工有限公司</div>
                     </div>`)
             });
-			$('#xianhuo').find('.item-content').append(dom.join(','))
+			$('#xianhuo').find('.item-content').append(dom.join(''))
 		},
         init:function (goodData) {
-            [this.data1,this.data2,this.data3,this.data4,this.data5,this.data6,this.data7,this.data8] = goodData;
-            this.rendererData(this.data1)
+            // [this.data1,this.data2,this.data3,this.data4,this.data5,this.data6,this.data7,this.data8] = goodData;
+            // this.rendererData(this.data1)
 		}
     };
 

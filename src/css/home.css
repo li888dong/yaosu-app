@@ -149,7 +149,7 @@ header i.icon-search{
 .product-container .product-info{
     font-size: 12px;
     width: 100%;
-    margin: 0px 0 0 10px;
+    margin: 0 0 0 10px;
     height: 50px;
     border-left: 1px solid #000000;
     overflow: hidden;
@@ -157,12 +157,15 @@ header i.icon-search{
 }
 .product-container .product-info .slide-container{
     position: absolute;
+    top: 0;
+    left: 0;
 }
 .product-container .product-info .slide-container>div{
     height: 50px;
     padding-left: 10px;
 }
 .product-container .product-info .slide-container.yuanliao{
+    z-index: 1;
     box-sizing: border-box;
     padding-top: 10px;
 }
@@ -172,16 +175,16 @@ header i.icon-search{
 .product-container  .slide-container.zhongyao .product-name{
     margin-right: 15px;
 }
-.product-container  .slide-container.zhongyao .price{
-    width: 25%;
-    margin-left: 5px;
-}
+
 .product-container .product-info .slide-container.yuanliao p{
     white-space: nowrap;
 }
 .product-container .product-info span{
     display: inline-block;
     margin:0 5px;
+}
+.product-container  .markets-group span{
+    width: 50px;
 }
 .product-container .product-name,
 .product-container  .markets{
