@@ -6,7 +6,8 @@ $(function () {
      * @param elList 当前一组的tab标签
      * @param callback 回调函数
      * */
-    function tabChange(el, className, elList, callback = function () {}) {
+    function tabChange(el, className, elList, callback = function () {
+    }) {
         elList.removeClass(className);
         el.addClass(className);
     }
@@ -100,17 +101,17 @@ $(function () {
         changeType: function () {
             this.type === 0 ? this.type = 1 : this.type = 0;
             if (this.type === 0) {
-                $('.slide-container.zhongyao').css('zIndex',-1);
-                $('.slide-container.yuanliao').css('zIndex',1)
+                $('.slide-container.zhongyao').css('zIndex', -1);
+                $('.slide-container.yuanliao').css('zIndex', 1)
             }
             if (this.type === 1) {
-                $('.slide-container.yuanliao').css('zIndex',-1);
-                $('.slide-container.zhongyao').css('zIndex',1)
+                $('.slide-container.yuanliao').css('zIndex', -1);
+                $('.slide-container.zhongyao').css('zIndex', 1)
             }
         },
         init: function (yuanliaoData, zhongyaoData) {
-            $('.slide-container.zhongyao').css('zIndex',-1);
-            $('.slide-container.yuanliao').css('zIndex',1)
+            $('.slide-container.zhongyao').css('zIndex', -1);
+            $('.slide-container.yuanliao').css('zIndex', 1)
             this.yuanliaoData = yuanliaoData;
             this.zhongyaoData = zhongyaoData;
 
@@ -126,9 +127,9 @@ $(function () {
                 `)
 
             }
-            this.zhongyaoData.map(i=>{
+            this.zhongyaoData.map(i => {
                 var marketsGroup = [];
-                i.tbProductTcmOriginplace.map(j=>{
+                i.tbProductTcmOriginplace.map(j => {
                     marketsGroup.push(`<span class="markets">${j.markets} :</span><span class="price">${j.price}</span>`)
                 });
                 $('.slide-container.zhongyao').append(`
@@ -147,19 +148,19 @@ $(function () {
 
     // 现货
     var goods = {
-        type:'api',
-        api:[],
-        basics:[],
-        featureApi:[],
-        ingredients:[],
-        midbody:[],
-        natural:[],
-        selfSupport:[],
-        tcm:[],
-        changeType:function (type) {
-			this.type = type;
-			$('#xianhuo').find('.item-content').empty();
-			switch (this.type){
+        type: 'api',
+        api: [],
+        basics: [],
+        featureApi: [],
+        ingredients: [],
+        midbody: [],
+        natural: [],
+        selfSupport: [],
+        tcm: [],
+        changeType: function (type) {
+            this.type = type;
+            $('#xianhuo').find('.item-content').empty();
+            switch (this.type) {
                 case 'api':
                     this.rendererData(this.api);
                     break;
@@ -188,19 +189,19 @@ $(function () {
                     this.rendererData(this.api)
 
             }
-		},
-        rendererData:function (data) {
+        },
+        rendererData: function (data) {
             var dom = [];
-            data.map(i=>{
-				dom.push(`<div class="product-item">
+            data.map(i => {
+                dom.push(`<div class="product-item">
                         <h4 class="item-title">${i.chanpmc}</h4>
                         <div class="item-info">${i.chund}</div>
                         <div class="item-company">${i.qiymc}</div>
                     </div>`)
             });
-			$('#xianhuo').find('.item-content').append(dom.join(''))
-		},
-        init:function (goodData) {
+            $('#xianhuo').find('.item-content').append(dom.join(''))
+        },
+        init: function (goodData) {
             this.api = goodData.api;
             this.basics = goodData.basics;
             this.featureApi = goodData.featureApi;
@@ -210,9 +211,177 @@ $(function () {
             this.tcm = goodData.tcm;
             this.selfSupport = goodData.selfSupport;
             this.rendererData(this.api);
-		}
+        }
     };
 
+    // 热门采购
+    var procurement = {
+        data: [],
+        rendererData: function (data) {
+            var dom = [];
+            data.map(i => {
+                dom.push(`
+                    <div class="product-item">
+                        <div class="item-title">${i.goodname}</div>
+                        <div class="item-info">${i.messagevalidity}</div>
+                        <div class="item-company">${i.companyname}</div>
+                    </div>
+                `)
+            });
+            $('#caigou').find('.item-content').empty().append(dom.join(''))
+        },
+        init: function (data) {
+            this.data = data;
+            this.rendererData(this.data)
+        }
+    };
+
+    // 优选外贸
+    var waimao = {
+        type: 0,
+        chanpinData: [],
+        qudaoData: [],
+        changeType: function () {
+            this.type === 0 ? this.type = 1 : this.type = 0;
+            if (this.type === 0) {
+                this.rendererData(this.chanpinData.list)
+            }
+            if (this.type === 1) {
+                this.rendererData(this.qudaoData.list)
+            }
+        },
+        init: function (chanpinData, qudaoData) {
+            this.type = 0;
+            this.chanpinData = chanpinData;
+            this.qudaoData = qudaoData;
+            this.rendererData(this.chanpinData.list)
+        },
+        rendererData: function (data) {
+            var dom = [];
+            data.map(i => {
+                dom.push(`
+                    <div class="product-item">
+                        <span class="item-title">${i.companyname}</span>
+                        <span class="item-info">HS号：${i.hs}</span>
+                    </div>
+                `)
+            })
+            $('#waimao').find('.item-content').empty().append(dom.join(''))
+        }
+    };
+
+    // 推荐项目
+    var xiangmu = {
+        type: 0,
+        demandData: [],
+        supplyData: [],
+        changeType: function () {
+            this.type === 0 ? this.type = 1 : this.type = 0;
+            if (this.type === 0) {
+                this.rendererData(this.demandData.list)
+            }
+            if (this.type === 1) {
+                this.rendererData(this.supplyData.list)
+            }
+        },
+        init: function (demandData, supplyData) {
+            this.type = 0;
+            this.demandData = demandData;
+            this.supplyData = supplyData;
+            this.rendererData(this.demandData.list)
+        },
+        rendererData: function (data) {
+            var dom = [];
+            data.map(i => {
+                dom.push(`<div class="product-item">
+                        <div class="item-title">${i.companyname}</div>
+                        <div class="item-date">${i.addtime}</div>
+                    </div>`)
+            });
+            $('#xiangmu').find('.item-content').empty().append(dom.join(''))
+        }
+    };
+
+    // 创新技术
+    var jishu = {
+        type: 0,
+        demandData: [],
+        supplyData: [],
+        changeType: function () {
+            this.type === 0 ? this.type = 1 : this.type = 0;
+            if (this.type === 0) {
+                this.rendererData(this.demandData.list)
+            }
+            if (this.type === 1) {
+                this.rendererData(this.supplyData.list)
+            }
+        },
+        init: function (demandData, supplyData) {
+            this.type = 0;
+            this.demandData = demandData;
+            this.supplyData = supplyData;
+            this.rendererData(this.demandData.list)
+        },
+        rendererData: function (data) {
+            var dom = [];
+            data.map(i => {
+                dom.push(`<div class="product-item">
+                        <div class="item-title">${i.companyname || ''}</div>
+                        <div class="item-date">${i.addtime || ''}</div>
+                    </div>`)
+            });
+            $('#jishu').find('.item-content').empty().append(dom.join(''))
+        }
+    };
+    // 要批文
+    var piwen = {
+        type: 0,
+        demandData: [],
+        supplyData: [],
+        changeType: function () {
+            this.type === 0 ? this.type = 1 : this.type = 0;
+            if (this.type === 0) {
+                this.rendererData(this.demandData.list)
+            }
+            if (this.type === 1) {
+                this.rendererData(this.supplyData.list)
+            }
+        },
+        init: function (demandData, supplyData) {
+            this.type = 0;
+            this.demandData = demandData;
+            this.supplyData = supplyData;
+            this.rendererData(this.demandData.list)
+        },
+        rendererData: function (data) {
+            var dom = [];
+            data.map(i => {
+                dom.push(`<div class="product-item">
+                        <div class="item-title">${i.companyname || ''}</div>
+                        <div class="item-date">${i.addtime || ''}</div>
+                    </div>`)
+            });
+            $('#piwen').find('.item-content').empty().append(dom.join(''))
+        }
+    };
+    // 广告条幅
+    advertising = {
+        urlList:[],
+        init:function (data) {
+            this.urlList.length = 0;
+            data.map(i=>{
+                this.urlList.push('http://image.yaosuce.com'+i.picture)
+            });
+            this.rendererData();
+        },
+        rendererData:function () {
+            var $adLogoList = $('.ad-logo');
+            console.log(this.urlList)
+            for(var i = 0;i<this.urlList.length;i++){
+                $($adLogoList[i]).css('backgroundImage','url('+this.urlList[i]+')')
+            }
+        }
+    };
     // 用以存放请求回来的数据
     var fetchData = {};
     // 请求首页数据
@@ -226,10 +395,22 @@ $(function () {
 
             // banner轮播
             initBannerLunbo(fetchData.banner, lunbo);
-	        //初始化参考价格
+            //初始化参考价格
             referencePrice.init(fetchData.api, fetchData.tcm);
             //初始化现货
             goods.init(fetchData.goods);
+            // 初始化采购
+            procurement.init(fetchData.procurement);
+            // 初始化外贸
+            waimao.init(fetchData.service.FTN[0], fetchData.service.FTN[1]);
+            // 初始化项目
+            xiangmu.init(fetchData.service.PNO[0], fetchData.service.PNO[1]);
+            // 初始化技术
+            jishu.init(fetchData.service.TNO[0], fetchData.service.TNO[1]);
+            // 初始化批文
+            piwen.init(fetchData.service.ANN[0], fetchData.service.ANN[1]);
+            // 初始化广告条幅
+            advertising.init(fetchData.advertising);
             // 跳转全部 的点击事件
             $('.more').click(function () {
                 checkMore($(this).parents('div.item-container')[0].id)
@@ -246,8 +427,17 @@ $(function () {
                     case 'price':
                         referencePrice.changeType();
                         break;
-                    case 'xianhuo':
-
+                    case 'waimao':
+                        waimao.changeType();
+                        break;
+                    case 'xiangmu':
+                        xiangmu.changeType();
+                        break;
+                    case 'jishu':
+                        jishu.changeType();
+                    case 'piwen':
+                        piwen.changeType();
+                        break;
                     default:
                 }
                 tabChange($(this), 'tabbar-selected', $(this).parent().find('span'), callback)
