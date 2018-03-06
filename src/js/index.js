@@ -4,7 +4,6 @@ $(function () {
      * @param el 当前被点击的tab标签
      * @param className 点击被激活时的类名
      * @param elList 当前一组的tab标签
-     * @param callback 回调函数
      * */
     function tabChange(el, className, elList) {
         elList.removeClass(className);
@@ -195,7 +194,7 @@ $(function () {
         rendererData: function (data) {
             var dom = [];
             data.map(i => {
-                dom.push(`<div class="product-item">
+                dom.push(`<div class="product-item" data-goodsID="${i.goodsID}">
                         <h4 class="item-title">${i.chanpmc}</h4>
                         <div class="item-info">${i.chund}</div>
                         <div class="item-company">${i.qiymc}</div>
@@ -222,13 +221,11 @@ $(function () {
         rendererData: function (data) {
             var dom = [];
             data.map(i => {
-                dom.push(`
-                    <div class="product-item">
+                dom.push(`<div class="product-item" data-procurementid="${i.procurementid}">
                         <div class="item-title">${i.goodname}</div>
+                        <div class="item-company">${i.companyname||'个人用户'}</div>
                         <div class="item-info">${i.messagevalidity}</div>
-                        <div class="item-company">${i.companyname}</div>
-                    </div>
-                `)
+                    </div>`)
             });
             $('#caigou').find('.item-content').empty().append(dom.join(''))
         },
@@ -262,9 +259,9 @@ $(function () {
             var dom = [];
             data.map(i => {
                 dom.push(`
-                    <div class="product-item">
-                        <span class="item-title">${i.companyname}</span>
-                        <span class="item-info">HS号：${i.hs}</span>
+                    <div class="product-item" data-foreigntradeid="${i.foreigntradeid}">
+                        <p><span class="item-title">${i.companyname}</span></p>
+                        <p><span class="item-info">HS号：${i.hs}</span></p>
                     </div>
                 `)
             })
@@ -295,7 +292,7 @@ $(function () {
         rendererData: function (data) {
             var dom = [];
             data.map(i => {
-                dom.push(`<div class="product-item">
+                dom.push(`<div class="product-item" data-projectid="${i.projectid}">
                         <div class="item-title">${i.companyname}</div>
                         <div class="item-date">${i.addtime}</div>
                     </div>`)
@@ -327,7 +324,7 @@ $(function () {
         rendererData: function (data) {
             var dom = [];
             data.map(i => {
-                dom.push(`<div class="product-item">
+                dom.push(`<div class="product-item" data-technologyid="${i.technologyid}">
                         <div class="item-title">${i.companyname || ''}</div>
                         <div class="item-date">${i.addtime || ''}</div>
                     </div>`)
@@ -358,7 +355,7 @@ $(function () {
         rendererData: function (data) {
             var dom = [];
             data.map(i => {
-                dom.push(`<div class="product-item">
+                dom.push(`<div class="product-item" data-approvalnumberid="${i.approvalnumberid}">
                         <div class="item-title">${i.companyname || ''}</div>
                         <div class="item-date">${i.addtime || ''}</div>
                     </div>`)
@@ -378,9 +375,9 @@ $(function () {
         },
         rendererData: function () {
             var $adLogoList = $('.ad-logo');
-            console.log(this.urlList)
             for (var i = 0; i < this.urlList.length; i++) {
-                $($adLogoList[i]).css('backgroundImage', 'url(' + this.urlList[i] + ')')
+                $($adLogoList[i])
+                    .css('backgroundImage', 'url(' + this.urlList[i] + ')')
             }
         }
     };
@@ -393,7 +390,6 @@ $(function () {
         dataType: 'json',
         success: function (res) {
             fetchData = res.data;
-            console.log(res.data);
 
             // banner轮播
             initBannerLunbo(fetchData.banner, lunbo);
@@ -424,7 +420,9 @@ $(function () {
 
             // tab标签的切换事件
             $('.tabbar-container>span').click(function () {
-                var callback;
+                if ($(this).hasClass('tabbar-selected')) {
+                    return
+                }
                 switch ($(this).closest('[id]')[0].id) {
                     case 'price':
                         referencePrice.changeType();
@@ -437,12 +435,13 @@ $(function () {
                         break;
                     case 'jishu':
                         jishu.changeType();
+                        break;
                     case 'piwen':
                         piwen.changeType();
                         break;
                     default:
                 }
-                tabChange($(this), 'tabbar-selected', $(this).parent().find('span'), callback)
+                tabChange($(this), 'tabbar-selected', $(this).parent().find('span'))
             });
 
             $('.tabbar-list td').click(function () {
