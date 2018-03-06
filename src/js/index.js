@@ -147,38 +147,69 @@ $(function () {
 
     // 现货
     var goods = {
-        type:'data1',
-        data1:{},
-        data2:{},
-        data3:{},
-        data4:{},
-        data5:{},
-        data6:{},
-        data7:{},
-        data8:{},
+        type:'api',
+        api:[],
+        basics:[],
+        featureApi:[],
+        ingredients:[],
+        midbody:[],
+        natural:[],
+        selfSupport:[],
+        tcm:[],
         changeType:function (type) {
 			this.type = type;
 			$('#xianhuo').find('.item-content').empty();
 			switch (this.type){
-                case 'data1':
-                    this.rendererData(this.data1);
+                case 'api':
+                    this.rendererData(this.api);
                     break;
+                case 'basics':
+                    this.rendererData(this.basics);
+                    break;
+                case 'featureApi':
+                    this.rendererData(this.featureApi);
+                    break;
+                case 'ingredients':
+                    this.rendererData(this.ingredients);
+                    break;
+                case 'midbody':
+                    this.rendererData(this.midbody);
+                    break;
+                case 'natural':
+                    this.rendererData(this.natural);
+                    break;
+                case 'selfSupport':
+                    this.rendererData(this.selfSupport);
+                    break;
+                case 'tcm':
+                    this.rendererData(this.tcm);
+                    break;
+                default:
+                    this.rendererData(this.api)
 
             }
 		},
         rendererData:function (data) {
+            var dom = [];
             data.map(i=>{
 				dom.push(`<div class="product-item">
-                        <h4 class="item-title">己内酰胺</h4>
-                        <div class="item-info">纯度：99%</div>
-                        <div class="item-company">西安晋级了化工有限公司</div>
+                        <h4 class="item-title">${i.chanpmc}</h4>
+                        <div class="item-info">${i.chund}</div>
+                        <div class="item-company">${i.qiymc}</div>
                     </div>`)
             });
 			$('#xianhuo').find('.item-content').append(dom.join(''))
 		},
         init:function (goodData) {
-            // [this.data1,this.data2,this.data3,this.data4,this.data5,this.data6,this.data7,this.data8] = goodData;
-            // this.rendererData(this.data1)
+            this.api = goodData.api;
+            this.basics = goodData.basics;
+            this.featureApi = goodData.featureApi;
+            this.ingredients = goodData.ingredients;
+            this.midbody = goodData.midbody;
+            this.natural = goodData.natural;
+            this.tcm = goodData.tcm;
+            this.selfSupport = goodData.selfSupport;
+            this.rendererData(this.api);
 		}
     };
 
