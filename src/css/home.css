@@ -186,7 +186,7 @@ header i.icon-search{
     margin:0 5px;
 }
 .product-container  .markets-group span{
-    width: 50px;
+    width: 47px;
 }
 .product-container .product-name,
 .product-container  .markets{
@@ -264,6 +264,11 @@ header i.icon-search{
     box-sizing: border-box;
     border-bottom: 1px solid #eee;
     line-height:24px;
+}
+.item-container.xianhuo .item-content .product-item h4.item-title{
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .item-container.xianhuo .item-content .product-item:nth-child(even){
     border-left: 1px solid #eee;

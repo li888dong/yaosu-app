@@ -6,8 +6,7 @@ $(function () {
      * @param elList 当前一组的tab标签
      * @param callback 回调函数
      * */
-    function tabChange(el, className, elList, callback = function () {
-    }) {
+    function tabChange(el, className, elList) {
         elList.removeClass(className);
         el.addClass(className);
     }
@@ -117,9 +116,11 @@ $(function () {
 
             var $slideContainer = $('.slide-container');
             $slideContainer.empty();
+            var yuanliaoDom = [],
+                zhongyaoDom = [];
             for (var i = 0; i < this.yuanliaoData.length; i = i + 2) {
 
-                $('.slide-container.yuanliao').append(`
+                yuanliaoDom.push(`
                     <div>
                         <p><span class="product-name">${this.yuanliaoData[i].productname}</span> <span class="price">${this.yuanliaoData[i].price}</span><span>${this.yuanliaoData[i].qualitystandard}</span></p>
                         <p><span class="product-name">${this.yuanliaoData[i + 1] ? this.yuanliaoData[i + 1].productname : ''}</span> <span class="price">${this.yuanliaoData[i + 1] ? this.yuanliaoData[i + 1].price : ''}</span><span>${this.yuanliaoData[i + 1] ? this.yuanliaoData[i + 1].qualitystandard : ''}</span></p>
@@ -127,19 +128,20 @@ $(function () {
                 `)
 
             }
+            $('.slide-container.yuanliao').append(yuanliaoDom.join(''));
             this.zhongyaoData.map(i => {
                 var marketsGroup = [];
                 i.tbProductTcmOriginplace.map(j => {
                     marketsGroup.push(`<span class="markets">${j.markets} :</span><span class="price">${j.price}</span>`)
                 });
-                $('.slide-container.zhongyao').append(`
+                zhongyaoDom.push(`
                     <div>
                         <p><span class="product-name">${i.productName}</span><span>${i.tbProductTcmOriginplace[0].specification}</span></p>
                         <p class="markets-group">${marketsGroup.join('')}</p>    
                     </div>
                 `)
             });
-
+            $('.slide-container.zhongyao').append(zhongyaoDom.join(''));
             lunbo($('.slide-container.zhongyao'), $('.slide-container.zhongyao>div'), 50, 2000, 'top', 1000);
             lunbo($('.slide-container.yuanliao'), $('.slide-container.yuanliao>div'), 50, 2000, 'top', 1000);
         },
@@ -366,19 +368,19 @@ $(function () {
     };
     // 广告条幅
     advertising = {
-        urlList:[],
-        init:function (data) {
+        urlList: [],
+        init: function (data) {
             this.urlList.length = 0;
-            data.map(i=>{
-                this.urlList.push('http://image.yaosuce.com'+i.picture)
+            data.map(i => {
+                this.urlList.push('http://image.yaosuce.com' + i.picture)
             });
             this.rendererData();
         },
-        rendererData:function () {
+        rendererData: function () {
             var $adLogoList = $('.ad-logo');
             console.log(this.urlList)
-            for(var i = 0;i<this.urlList.length;i++){
-                $($adLogoList[i]).css('backgroundImage','url('+this.urlList[i]+')')
+            for (var i = 0; i < this.urlList.length; i++) {
+                $($adLogoList[i]).css('backgroundImage', 'url(' + this.urlList[i] + ')')
             }
         }
     };
