@@ -192,15 +192,15 @@ $(function () {
             }
         },
         rendererData: function (data) {
-            var dom = [];
+            tempDom.length = 0;
             data.map(i => {
-                dom.push(`<div class="product-item" data-goodsID="${i.goodsID}">
+                tempDom.push(`<div class="product-item" data-goodsID="${i.goodsID}">
                         <h4 class="item-title">${i.chanpmc}</h4>
                         <div class="item-info">${i.chund}</div>
                         <div class="item-company">${i.qiymc}</div>
                     </div>`)
             });
-            $('#xianhuo').find('.item-content').append(dom.join(''))
+            $('#xianhuo').find('.item-content').append(tempDom.join(''))
         },
         init: function (goodData) {
             this.api = goodData.api;
@@ -219,15 +219,15 @@ $(function () {
     var procurement = {
         data: [],
         rendererData: function (data) {
-            var dom = [];
+            tempDom.length = 0;
             data.map(i => {
-                dom.push(`<div class="product-item" data-procurementid="${i.procurementid}">
+                tempDom.push(`<div class="product-item" data-procurementid="${i.procurementid}">
                         <div class="item-title">${i.goodname}</div>
                         <div class="item-company">${i.companyname||'个人用户'}</div>
                         <div class="item-info">${i.messagevalidity}</div>
                     </div>`)
             });
-            $('#caigou').find('.item-content').empty().append(dom.join(''))
+            $('#caigou').find('.item-content').empty().append(tempDom.join(''))
         },
         init: function (data) {
             this.data = data;
@@ -256,16 +256,16 @@ $(function () {
             this.rendererData(this.chanpinData.list)
         },
         rendererData: function (data) {
-            var dom = [];
+            tempDom.length = 0;
             data.map(i => {
-                dom.push(`
+                tempDom.push(`
                     <div class="product-item" data-foreigntradeid="${i.foreigntradeid}">
                         <p><span class="item-title">${i.companyname}</span></p>
                         <p><span class="item-info">HS号：${i.hs}</span></p>
                     </div>
                 `)
             })
-            $('#waimao').find('.item-content').empty().append(dom.join(''))
+            $('#waimao').find('.item-content').empty().append(tempDom.join(''))
         }
     };
 
@@ -290,14 +290,14 @@ $(function () {
             this.rendererData(this.demandData.list)
         },
         rendererData: function (data) {
-            var dom = [];
+            tempDom.length = 0;
             data.map(i => {
-                dom.push(`<div class="product-item" data-projectid="${i.projectid}">
+                tempDom.push(`<div class="product-item" data-projectid="${i.projectid}">
                         <div class="item-title">${i.companyname}</div>
                         <div class="item-date">${i.addtime}</div>
                     </div>`)
             });
-            $('#xiangmu').find('.item-content').empty().append(dom.join(''))
+            $('#xiangmu').find('.item-content').empty().append(tempDom.join(''))
         }
     };
 
@@ -322,14 +322,14 @@ $(function () {
             this.rendererData(this.demandData.list)
         },
         rendererData: function (data) {
-            var dom = [];
+            tempDom.length = 0;
             data.map(i => {
-                dom.push(`<div class="product-item" data-technologyid="${i.technologyid}">
+                tempDom.push(`<div class="product-item" data-technologyid="${i.technologyid}">
                         <div class="item-title">${i.companyname || ''}</div>
                         <div class="item-date">${i.addtime || ''}</div>
                     </div>`)
             });
-            $('#jishu').find('.item-content').empty().append(dom.join(''))
+            $('#jishu').find('.item-content').empty().append(tempDom.join(''))
         }
     };
     // 要批文
@@ -353,14 +353,14 @@ $(function () {
             this.rendererData(this.demandData.list)
         },
         rendererData: function (data) {
-            var dom = [];
+            tempDom.length = 0;
             data.map(i => {
-                dom.push(`<div class="product-item" data-approvalnumberid="${i.approvalnumberid}">
+                tempDom.push(`<div class="product-item" data-approvalnumberid="${i.approvalnumberid}">
                         <div class="item-title">${i.companyname || ''}</div>
                         <div class="item-date">${i.addtime || ''}</div>
                     </div>`)
             });
-            $('#piwen').find('.item-content').empty().append(dom.join(''))
+            $('#piwen').find('.item-content').empty().append(tempDom.join(''))
         }
     };
     // 广告条幅
@@ -383,6 +383,7 @@ $(function () {
     };
     // 用以存放请求回来的数据
     var fetchData = {};
+    var tempDom = [];
     // 请求首页数据
     $.ajax({
         url: 'http://localhost:3000/app/index/list',
