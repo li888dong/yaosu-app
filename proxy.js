@@ -10,12 +10,13 @@ app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,Authorization");
     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
     res.header("X-Powered-By", ' 3.2.1');
-    // res.header("Content-Type", "*");
+    res.header("Content-Type", "*");
     next();
 });
 
 // 配置静态文件服务中间件
-// 192.168.10.4:8086
+// http://192.168.10.4:8086
+// https://yxrhome.com
 let serverUrl='https://yxrhome.com';//server地址
 app.use(express.static(path.join(__dirname, './')));//静态资源index.html和node代码在一个目录下
 app.use('/', function(req, res) {
@@ -24,5 +25,5 @@ app.use('/', function(req, res) {
 });
  
 app.listen(3000,'127.0.0.1', function () {//前端ajax地址写 http://127.0.0.1:3000/
-  console.log('server is running at port 3000');
+  console.log('server is running at port 3000',__dirname);
 });

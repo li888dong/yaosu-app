@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" id="demo">
+<button id="btn">按钮</button>
+<p id="display"></p>
+<script>
+    // 数据双向绑定
+    var obj={};
+    var demo=document.querySelector('#demo');
+    var display=document.querySelector('#display');
+    Object.defineProperty(obj,'bind',{
+        set:function(val){
+            display.innerHTML = val;
+            demo.value = val;
+        },
+        get:function(){
+            return this.bind
+        }
+    })
+    demo.onkeyup=function(){
+        obj.bind = this.value;
+        console.log(obj.bind)
+    }
+
+
+    // 事件分发
+    btn.addEventListener("build", function(e) { console.log(e.detail) })
+
+    // 创建并分发事件
+    var event = new CustomEvent("build", {"detail":{"hazcheeseburger":true}})
+    btn.dispatchEvent(event)
+</script>
+</body>
+</html>
