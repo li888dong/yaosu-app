@@ -17,7 +17,7 @@ app.all('*', function (req, res, next) {
 // 配置静态文件服务中间件
 // http://192.168.10.4:8086
 // https://yxrhome.com
-let serverUrl='https://yxrhome.com';//server地址
+let serverUrl='http://yaosuce.com';//server地址
 app.use(express.static(path.join(__dirname, './')));//静态资源index.html和node代码在一个目录下
 app.use('/', function(req, res) {
   let url = serverUrl + req.url;
